@@ -16,11 +16,15 @@
       <div class="container">
         <%= link_to "News Reader App", root_path, id: "logo" %>
         <nav>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="hmenu">
+            <%= render 'devise/menu/registration_items' %>
+            <%= render 'devise/menu/login_items' %>
+          </ul>
+          <!-- <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home",   root_path %></li>
             <li><%= link_to "Help",   static_pages_help_url %></li>
             <li><%= link_to "Log in", '#' %></li>
-          </ul>
+          </ul> -->
         </nav>
       </div>
     </header>

@@ -1,6 +1,5 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
-
   # GET /entries
   # GET /entries.json
   def index
@@ -14,6 +13,7 @@ class EntriesController < ApplicationController
   # GET /entries/1
   # GET /entries/1.json
   def show
+    @comments = Comment.where(entry_id: @entry.id)
   end
 
   # GET /entries/new
@@ -73,6 +73,6 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:title, :subtitle, :body, :link)
+      params.require(:entry).permit(:title, :subtitle, :body, :link).merge(user_id: current_user.id)
     end
 end
