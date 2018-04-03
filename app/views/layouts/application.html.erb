@@ -17,6 +17,9 @@
         <%= link_to "News Reader App", root_path, id: "logo" %>
         <nav>
           <ul class="hmenu">
+            <% if user_signed_in? then%>
+            <%= link_to "Create Entry", new_entry_path%>
+            <%end %>
             <%= render 'devise/menu/registration_items' %>
             <%= render 'devise/menu/login_items' %>
           </ul>
